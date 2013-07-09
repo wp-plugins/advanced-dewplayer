@@ -35,6 +35,8 @@ You can use local as well as remote MP3 file path
 
 **Remember:** Use full path only.
 
+For documentation please click [here](http://www.westerndeal.com/OurPlugins/AdvanceDewplayer/Documentation.pdf)
+
 == Installation ==
 
 1. Download plugin and unzip.
