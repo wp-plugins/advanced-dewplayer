@@ -11,17 +11,26 @@ add_action('admin_menu', 'dew_admin_options');
 
 function dew_options_enqueue_scripts( $page ) {
 
-		wp_register_script( 'dew-upload', plugins_url().'/AdvancedDewplayer/admin-panel/upload.js', array('jquery','media-upload','thickbox') );
+		wp_register_script( 'dew-upload', plugins_url('admin-panel/upload.js',dirname(__FILE__)), array('jquery','media-upload','thickbox') );
 		wp_enqueue_script('jquery');	
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');	
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('dew-upload');
 		 
-		if (is_dew_screen())
-		{        
-    		wp_enqueue_style('dew-css', plugins_url().'/AdvancedDewplayer/admin-panel/dew-design.css', false, '1.0', 'screen' );
+		 if(function_exists(' get_current_screen'))
+		 {
+			if (is_dew_screen())
+			{        
+				wp_enqueue_style('dew-css',plugins_url('admin-panel/dew-design.css',dirname(__FILE__)), false, '1.0', 'screen' );
+			}
 		}
+		else if(isset($_GET['page']) && ($_GET['page'] == 'dew_player_options'))
+		{
+			wp_enqueue_style('dew-css',plugins_url('admin-panel/dew-design.css',dirname(__FILE__)), false, '1.0', 'screen' );
+		}
+		else
+		{}
 }
 add_action('admin_enqueue_scripts', 'dew_options_enqueue_scripts');
 
@@ -79,7 +88,7 @@ function dew_default_display_options() {
 		'header_name_for_size' => 'Size',
 		'header_name_for_duration' => 'Length',
 		'header_name_for_download' => 'Download',
-		 'download_img' => plugins_url().'/AdvancedDewplayer/admin-panel/img/download.png',
+		 'download_img' => plugins_url('admin-panel/img/download.png',dirname(__FILE__)),
 		'img_preview' => '',
 	);
 	

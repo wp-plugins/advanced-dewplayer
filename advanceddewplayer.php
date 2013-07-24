@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: AdvancedDewplayer
+Plugin Name: Advanced Dewplayer
 Plugin URI: http://www.westerndeal.com
 Description: Upload MP3 files to any folder on your server. Add the shortcode to your page/post with path of your MP3 folder from which you want to fetch all MP3 files and you have a beautiful playable list of MP3's with much more options.
-Version: 1.0.0
+Version: 1.1
 Author: WesternDeal
 Author URI: http://www.westerndeal.com
 */
@@ -46,6 +46,8 @@ function music_procedure($atts)
 		'path' => '',
 	), $atts ) );
 
+define('PLUGIN_PATH',plugins_url('',__FILE__));
+define('SITE_PATH',get_bloginfo('url')."/");
 global $maxrows;
 global $tabwidth;
 global $headheight;
@@ -63,7 +65,7 @@ global $sizeheader;
 global $lengthheader;
 global $downloadheader;
 global $downloadimg;
- 
+
 include_once("library/getid3.php");     
 	
 		 if ($handle = opendir(ABSPATH . $path))
@@ -131,7 +133,7 @@ foreach($dirFiles as $file)
 				$html .= '<td>'.$count.'</td>';
 				}
 				$html .= '<td>' . $name . '</td>';
-				$html .= '<td style="vertical-align:middle;"> <object type="application/x-shockwave-flash" data="'.plugins_url().'/AdvancedDewplayer/dewplayer.swf?mp3='.get_bloginfo('url')."/".$path.$file.'" width="200" height="20" id="dewplayer"><param name="wmode" value="transparent" /><param name="movie" value="'.plugins_url().'/AdvancedDewplayer/dewplayer.swf?mp3='.get_bloginfo('url').$path.$file.'" /></object>
+				$html .= '<td style="vertical-align:middle;"> <object type="application/x-shockwave-flash" data="'.PLUGIN_PATH.'/dewplayer.swf?mp3='.SITE_PATH.$path.$file.'" width="200" height="20" id="dewplayer"><param name="wmode" value="transparent" /><param name="movie" value="'.PLUGIN_PATH.'/dewplayer.swf?mp3='.SITE_PATH.$path.$file.'" /></object>
 </td>';
 				if( '1' == $showsize)
 				{ 
@@ -141,7 +143,7 @@ foreach($dirFiles as $file)
 				{ 
 				$html .= '<td>' .$playtime.' </td>';
 				}
-				$html .= '<td><a href="'.plugins_url().'/AdvancedDewplayer/admin-panel/download-file.php?dew_file='.get_bloginfo('url')."/".$path.$file.'"><img src="'.$downloadimg.'" title="download" style="border:none !imporatnt; width: 32px; height: 32px;"/></a></td>';
+				$html .= '<td><a href="'.PLUGIN_PATH.'/admin-panel/download-file.php?dew_file='.SITE_PATH.$path.$file.'"><img src="'.$downloadimg.'" title="download" style="border:none !imporatnt; width: 32px; height: 32px;"/></a></td>';
 				$html .= '</tr>';
 				
 				if(isset($maxrows))
@@ -167,8 +169,10 @@ function music_procedure_single($atts)
 {
 		  extract( shortcode_atts( array(
 		'file' => '',
+		'name' => ''
 	), $atts ) );
 
+	
 				global $tabwidth;
 				global $rowheight;
 				global $showsize;
@@ -186,12 +190,22 @@ function music_procedure_single($atts)
 				$html .= '<tr class="dew-content">';
 
 				if ( strtolower(substr(strrchr($file,"."),1)) != 'mp3' ) continue;
-				$parts = pathinfo($file);
-				$html .= '<td>' .$parts['basename'] . '</td>';
-				$html .= '<td style="vertical-align:middle;"> <object type="application/x-shockwave-flash" data="'.plugins_url().'/AdvancedDewplayer/dewplayer.swf?mp3='.$file.'" width="200" height="20" id="dewplayer"><param name="wmode" value="transparent" /><param name="movie" value="'.plugins_url().'/AdvancedDewplayer/dewplayer.swf?mp3='.$file.'" /></object>
+				
+				if($name=='')
+				{
+				 	$parts = pathinfo($file);
+					$file_name = $parts['basename'];
+				}
+				else
+				{
+					$file_name = $name;
+				}	
+				
+				$html .= '<td>' .$file_name. '</td>';
+				$html .= '<td style="vertical-align:middle;"> <object type="application/x-shockwave-flash" data="'.PLUGIN_PATH.'/dewplayer.swf?mp3='.$file.'" width="200" height="20" id="dewplayer"><param name="wmode" value="transparent" /><param name="movie" value="'.PLUGIN_PATH.'/dewplayer.swf?mp3='.$file.'" /></object>
 </td>';
 				
-				$html .= '<td><a href="'.plugins_url().'/AdvancedDewplayer/admin-panel/download-file.php?dew_file='.$file.'"><img src="'.$downloadimg.'" title="download" style="border:none !imporatnt; width: 32px; height: 32px;"/></a></td>';
+				$html .= '<td><a href="'.PLUGIN_PATH.'/admin-panel/download-file.php?dew_file='.$file.'"><img src="'.$downloadimg.'" title="download" style="border:none !imporatnt; width: 32px; height: 32px;"/></a></td>';
 				$html .= '</tr>';
 			
 			

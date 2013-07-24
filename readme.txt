@@ -1,39 +1,53 @@
 === Advanced Dewplayer ===
 Contributors: westerndeal
+Donate link: http://www.westerndeal.com/
 Tags: wordpress dewplayer, audio, audio player, mp3, mp3 player, flash, flash player, dewplayer, wp dewplayer, music, music player, ultimate player, songs
-Requires at least: 2.0.2
+Requires at least: 2.8
 Tested up to: 3.5.1
-Stable tag: 1.0.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Get all MP3 files from any directory and show them beautifully with player and other options.
+Get all MP3 files from any directory and show them with player with Perfect Layout and other options.
 
 == Description ==
 
-Upload MP3 files to any folder on your server. Add the shortcode to your page/post with path of your MP3 folder from which you want to fetch all MP3 files and you have a beautiful playable list of MP3's with much more options.
+Advanced Dewlayer is developed by [WesternDeal](http://www.westerndeal.com) allows you to show list of MP3's on your site or blog by fetching them from single directory on your server. You have to use shortcode into your page/post with path of your MP3 folder from which you want to fetch all MP3 files and you will see a perfect playable list of MP3's with much more options.
 
 If you want to display only single MP3 file then give full path of that MP3 file from local or remote server.
 
-**How to Use :**
+`Features`
 
-*For directory fetching:*
-Copy below shortcode into your page/post
-[musicdirectory path="Path of folder from which you want to get all MP3 files"]. 
-**Remember:** Don't forget to Include trailing slash (/) at the end of path and use relative path.
+* Get all MP3 files from sindle directory to display list of playable MP3s with other information and download option
+* You can also include single mp3 file from local or remote server
+* Plugin settings allows you to manage playing list of MP3s 
 
-*Examples:*
-[musicdirectory path="playlist/] 
+**MP3 files from single directory**
+You can use below shortcode for fetching all MP3's from single directory on your site:
 
-*For Single MP3 fetching:*
-Copy below shortcode into your page/post
-[musicsingle file="Full path of MP3 file"].
-You can use local as well as remote MP3 file path
+*[musicdirectory path="path of directory from which you want to fetch MP3's"]*
 
-*Examples:*
-[musicsingle file="http://www.mymusic.com/playlist/audio.mp3"]
+**Examples**
+1. [musicdirectory path="myaudio/"]
+2. [musicdirectory path="wp-content/myaudio/"]
 
-**Remember:** Use full path only.
+**Remember:** Don't forget to Include trailing slash (/) at the end of path and use relative path (relative to your site's root).
+
+**Single MP3 file**
+You can use below shortcode for showing single MP3 file:
+
+*[musicsingle file="Full path of your MP3 file"]*
+
+**Examples**
+1. [musicsingle file="http://www.mymusic.com/playlist/audio.mp3"]
+
+*Using custom name for MP3 file*
+
+below shortcode allow you to use custom name for remote MP3 file
+
+2. [musicdirectory file="http://www.mymusic.com/playlist/audio-abcd.mp3" name="MyAudio"]
+
+**Remember:** Use full path of MP3 file.
 
 For documentation please click [here](http://www.westerndeal.com/OurPlugins/AdvanceDewplayer/Documentation.pdf)
 
@@ -54,7 +68,7 @@ Please make sure that directory path you enter for MP3 files fetching has traili
 use following code for inserting shortcode into template file:
 
 `<?php 
-echo do_shortcode("[musicdirectory path="playlist/"]"); //replace playlist with your path 
+echo do_shortcode("[musicdirectory path="playlist/"]");   //replace playlist with your path 
 ?>`
 
 == Screenshots ==
@@ -64,5 +78,6 @@ echo do_shortcode("[musicdirectory path="playlist/"]"); //replace playlist with 
 
 == Changelog ==
 
-= 1.0.0 =
-* initial release
+= 1.1 =
+* fix URL issues
+* add custom name for single MP3 file 
