@@ -67,7 +67,7 @@ For documentation please click [here](http://www.westerndeal.com/OurPlugins/Adva
 **Manual Installation**
 
 1. Download the plugin zip to your computer and unzip it.
-2. Using an FTP program, or your hosting control panel, upload the unzipped plugin folder to your WordPress installation’s *wp-content/plugins/* directory.
+2. Using an FTP program, or your hosting control panel, upload the unzipped plugin folder to your WordPress installation *wp-content/plugins/* directory.
 3. Activate the plugin through the 'Plugins' menu in WordPress admin.
 
 == Frequently Asked Questions ==
