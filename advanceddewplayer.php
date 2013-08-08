@@ -3,7 +3,7 @@
 Plugin Name: Advanced Dewplayer
 Plugin URI: http://www.westerndeal.com
 Description: Upload MP3 files to any folder on your server. Add the shortcode to your page/post with path of your MP3 folder from which you want to fetch all MP3 files and you have a beautiful playable list of MP3's with much more options.
-Version: 1.1
+Version: 1.2
 Author: WesternDeal
 Author URI: http://www.westerndeal.com
 */
@@ -16,7 +16,8 @@ function dew_uninstall()
 	$wpdb->delete( $wpdb->prefix.'options', array( 'option_name' => 'dew_display_options' ) );
 }
 
-
+define('PLUGIN_PATH',plugins_url('',__FILE__));
+define('SITE_PATH',get_bloginfo('url')."/");
 require_once('admin-panel/dew_admin_options.php');
 $dp = get_option('dew_display_options');
 
@@ -46,8 +47,6 @@ function music_procedure($atts)
 		'path' => '',
 	), $atts ) );
 
-define('PLUGIN_PATH',plugins_url('',__FILE__));
-define('SITE_PATH',get_bloginfo('url')."/");
 global $maxrows;
 global $tabwidth;
 global $headheight;
@@ -65,7 +64,7 @@ global $sizeheader;
 global $lengthheader;
 global $downloadheader;
 global $downloadimg;
-
+ 
 include_once("library/getid3.php");     
 	
 		 if ($handle = opendir(ABSPATH . $path))
@@ -77,13 +76,13 @@ include_once("library/getid3.php");
 				$html = '<style type="text/css">
 				.dewPlay{ border: 1px #aaaaaa solid; border-collapse:collapse; width:'.$tabwidth.'px !important;}
 				.dewPlay tbody tr td{padding: 8px 12px;}
-				.dewPlay tbody tr.dew_header { height:' . $headheight . 'px;}
-				 .dewPlay tr.dew-content {height:' . $rowheight . 'px;}
-				.dew_header { vertical-align:middle; background-color:'  . $headcolor . '; margin-bottom:12px;}
+				.dewPlay tbody tr.dew_header { height:' . $headheight . 'px !important;}
+				 .dewPlay tr.dew-content {height:' . $rowheight . 'px !important;}
+				.dew_header { vertical-align:middle; background-color:'  . $headcolor . ' !important; margin-bottom:12px;}
 				.dew_header td{ vertical-align:middle; font-weight:bold; font-family: calibri; font-size: 16px;}
 				.dewPlay tbody tr td { vertical-align:middle; }
-				.dew-content:nth-child(odd) {background-color:'  . $prirow . ';}
-				.dew-content:nth-child(even) {background-color:'  . $altrow . ';}
+				.dew-content:nth-child(odd) {background-color:'  . $prirow . ' !important;}
+				.dew-content:nth-child(even) {background-color:'  . $altrow . ' !important;}
 				</style>';
 				$html .= '<table border="1" class="dewPlay">';
 				$html .= '<tr class="dew_header">';
@@ -143,7 +142,8 @@ foreach($dirFiles as $file)
 				{ 
 				$html .= '<td>' .$playtime.' </td>';
 				}
-				$html .= '<td><a href="'.PLUGIN_PATH.'/admin-panel/download-file.php?dew_file='.SITE_PATH.$path.$file.'"><img src="'.$downloadimg.'" title="download" style="border:none !imporatnt; width: 32px; height: 32px;"/></a></td>';
+				//$download=rawurlencode(SITE_PATH.$path.$file);
+				$html .= '<td><a href="'.PLUGIN_PATH.'/admin-panel/download-file.php?dew_file='.SITE_PATH.$path.$file.'" class="download"><img src="'.$downloadimg.'" title="download" style="border:none !important; width: 32px; height: 32px;"/></a></td>';
 				$html .= '</tr>';
 				
 				if(isset($maxrows))
@@ -172,7 +172,6 @@ function music_procedure_single($atts)
 		'name' => ''
 	), $atts ) );
 
-	
 				global $tabwidth;
 				global $rowheight;
 				global $showsize;
@@ -182,7 +181,7 @@ function music_procedure_single($atts)
 				$html = '<style type="text/css">
 				.dewPlay{ border: 1px #aaaaaa solid; border-collapse:collapse; width:'.$tabwidth.'px !important;}
 				.dewPlay tbody tr td{padding: 8px 12px;}
-				 .dewPlay tr.dew-content {height:' . $rowheight . 'px;}
+				 .dewPlay tr.dew-content {height:' . $rowheight . 'px !important;}
 				.dew_header td{ vertical-align:middle; font-weight:bold; font-family: calibri; font-size: 16px;}
 				.dewPlay tbody tr td { vertical-align:middle; }
 				</style>';
@@ -190,7 +189,6 @@ function music_procedure_single($atts)
 				$html .= '<tr class="dew-content">';
 
 				if ( strtolower(substr(strrchr($file,"."),1)) != 'mp3' ) continue;
-				
 				if($name=='')
 				{
 				 	$parts = pathinfo($file);
@@ -200,12 +198,11 @@ function music_procedure_single($atts)
 				{
 					$file_name = $name;
 				}	
-				
 				$html .= '<td>' .$file_name. '</td>';
 				$html .= '<td style="vertical-align:middle;"> <object type="application/x-shockwave-flash" data="'.PLUGIN_PATH.'/dewplayer.swf?mp3='.$file.'" width="200" height="20" id="dewplayer"><param name="wmode" value="transparent" /><param name="movie" value="'.PLUGIN_PATH.'/dewplayer.swf?mp3='.$file.'" /></object>
 </td>';
 				
-				$html .= '<td><a href="'.PLUGIN_PATH.'/admin-panel/download-file.php?dew_file='.$file.'"><img src="'.$downloadimg.'" title="download" style="border:none !imporatnt; width: 32px; height: 32px;"/></a></td>';
+				$html .= '<td><a href="'.PLUGIN_PATH.'/admin-panel/download-file-remote.php?dew_file='.$file.'"><img src="'.$downloadimg.'" title="download" style="border:none !imporatnt; width: 32px; height: 32px;"/></a></td>';
 				$html .= '</tr>';
 			
 			

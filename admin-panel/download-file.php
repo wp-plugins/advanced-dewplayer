@@ -2,13 +2,18 @@
 
 $file=$_GET['dew_file'];
 
-header("Content-type:application/mp3");
-
 $fbasename = pathinfo($file);
 $file_name = $fbasename['basename'];
-// It will be called downloaded.pdf
-header("Content-Disposition:attachment;filename=$file_name");
+$file_dir = $fbasename['dirname']."/";
+//$download = rawurlencode($file_name);
 
-// The PDF source is in original.pdf
-readfile($file);
+$data = str_replace(' ','%20',$file);
+
+//header("Content-type:application/mp3");
+header("Content-type:application/octet-stream");
+header("Content-Disposition:attachment;filename=".$file_name);
+
+header('Pragma: no-cache');
+header('Expires: 0');
+readfile($data);
 ?>

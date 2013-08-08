@@ -4,7 +4,7 @@ Donate link: http://www.westerndeal.com/
 Tags: wordpress dewplayer, audio, audio player, mp3, mp3 player, flash, flash player, dewplayer, wp dewplayer, music, music player, ultimate player, songs
 Requires at least: 2.8
 Tested up to: 3.5.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,29 +23,34 @@ If you want to display only single MP3 file then give full path of that MP3 file
 * Plugin settings allows you to manage playing list of MP3s 
 
 **MP3 files from single directory**
+
 You can use below shortcode for fetching all MP3's from single directory on your site:
 
 *[musicdirectory path="path of directory from which you want to fetch MP3's"]*
 
-**Examples**
+`**Examples**
+
 1. [musicdirectory path="myaudio/"]
-2. [musicdirectory path="wp-content/myaudio/"]
+
+2. [musicdirectory path="wp-content/myaudio/"]`
 
 **Remember:** Don't forget to Include trailing slash (/) at the end of path and use relative path (relative to your site's root).
 
 **Single MP3 file**
+
 You can use below shortcode for showing single MP3 file:
 
 *[musicsingle file="Full path of your MP3 file"]*
 
-**Examples**
-1. [musicsingle file="http://www.mymusic.com/playlist/audio.mp3"]
+`**Examples**
+
+1. [musicsingle file="http://www.mymusic.com/playlist/audio.mp3"]`
 
 *Using custom name for MP3 file*
 
 below shortcode allow you to use custom name for remote MP3 file
 
-2. [musicdirectory file="http://www.mymusic.com/playlist/audio-abcd.mp3" name="MyAudio"]
+`2. [musicsingle file="http://www.mymusic.com/playlist/audio-abcd.mp3" name="MyAudio"]`
 
 **Remember:** Use full path of MP3 file.
 
@@ -53,9 +58,17 @@ For documentation please click [here](http://www.westerndeal.com/OurPlugins/Adva
 
 == Installation ==
 
+**Wordpress Automatic Installation**
+
 1. Download plugin and unzip.
 2. Upload the plugin file to your WordPress plugins directory inside of wp-content : /wp-content/plugins/
 3. Activate the plugin through the 'Plugins' menu in WordPress.
+
+**Manual Installation**
+
+1. Download the plugin zip to your computer and unzip it.
+2. Using an FTP program, or your hosting control panel, upload the unzipped plugin folder to your WordPress installation’s *wp-content/plugins/* directory.
+3. Activate the plugin through the 'Plugins' menu in WordPress admin.
 
 == Frequently Asked Questions ==
 
@@ -68,9 +81,13 @@ Please make sure that directory path you enter for MP3 files fetching has traili
 use following code for inserting shortcode into template file:
 
 `<?php 
-echo do_shortcode("[musicdirectory path="playlist/"]");   //replace playlist with your path 
+echo do_shortcode('[musicdirectory path="playlist/"]');   //replace playlist with your path 
 ?>`
 
+`<?php 
+echo do_shortcode('[musicsingle file="http://www.mymusic.com/playlist/audio-abcd.mp3" name="MyAudio"]
+"]');
+?>`
 == Screenshots ==
 
 1. Plugin Settings
@@ -81,3 +98,6 @@ echo do_shortcode("[musicdirectory path="playlist/"]");   //replace playlist wit
 = 1.1 =
 * fix URL issues
 * add custom name for single MP3 file 
+
+= 1.2 =
+* fix some download bugs
