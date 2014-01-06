@@ -3,8 +3,8 @@ Contributors: westerndeal
 Donate link: http://www.westerndeal.com/
 Tags: wordpress dewplayer, audio, audio player, mp3, mp3 player, flash, flash player, dewplayer, wp dewplayer, music, music player, ultimate player, songs
 Requires at least: 2.8
-Tested up to: 3.5.1
-Stable tag: 1.2
+Tested up to: 3.8
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ Advanced Dewlayer is developed by [WesternDeal](http://www.westerndeal.com) allo
 
 If you want to display only single MP3 file then give full path of that MP3 file from local or remote server.
 
-`Features`
+**Features**
 
 * Get all MP3 files from sindle directory to display list of playable MP3s with other information and download option
 * You can also include single mp3 file from local or remote server
@@ -28,7 +28,7 @@ You can use below shortcode for fetching all MP3's from single directory on your
 
 *[musicdirectory path="path of directory from which you want to fetch MP3's"]*
 
-`**Examples**
+`Examples
 
 1. [musicdirectory path="myaudio/"]
 
@@ -42,7 +42,7 @@ You can use below shortcode for showing single MP3 file:
 
 *[musicsingle file="Full path of your MP3 file"]*
 
-`**Examples**
+`Examples
 
 1. [musicsingle file="http://www.mymusic.com/playlist/audio.mp3"]`
 
@@ -60,9 +60,10 @@ For documentation please click [here](http://www.westerndeal.com/OurPlugins/Adva
 
 **Wordpress Automatic Installation**
 
-1. Download plugin and unzip.
-2. Upload the plugin file to your WordPress plugins directory inside of wp-content : /wp-content/plugins/
-3. Activate the plugin through the 'Plugins' menu in WordPress.
+1. Visit 'wp-admin > Plugins >Add New'.
+2. Search for Advanced Dewplayer OR if you have already downloaded plugin ZIP then instead of 'Search', choose 'Upload'.
+3. After installing plugin, activate it.
+4. Now you can see 'Advanced Dewplayer' menu in left navigation panel.
 
 **Manual Installation**
 
@@ -101,3 +102,6 @@ echo do_shortcode('[musicsingle file="http://www.mymusic.com/playlist/audio-abcd
 
 = 1.2 =
 * fix some download bugs
+
+= 1.3 =
+* fix CVE-2013-7240 issue

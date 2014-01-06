@@ -129,7 +129,7 @@ function dew_initialize_theme_options() {
 		'dew_display_options',
 		'dew_settings_section',
 		array(
-			__( 'define width for table in px', 'dew' ),
+			__( 'define width for table in % or px (include % or px with value)', 'dew' ),
 		)
 	);
 	
@@ -140,7 +140,7 @@ function dew_initialize_theme_options() {
 		'dew_display_options',
 		'dew_settings_section',
 		array(
-			__( 'define height for table header in px', 'dew' ),
+			__( 'define height for table header in % or px (include % or px with value)', 'dew' ),
 		)
 	);
 
@@ -151,7 +151,7 @@ function dew_initialize_theme_options() {
 		'dew_display_options',
 		'dew_settings_section',
 		array(
-			__( 'define height for table rows in px', 'dew' ),
+			__( 'define height for table rows in % or px (include % or px with value)', 'dew' ),
 		)
 	);
 	
@@ -334,7 +334,7 @@ function max_rows_callback($args) {
 	
 
 	echo '<input type="text" id="max_rows" name="dew_display_options[max_rows]" value="' . $options['max_rows'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 function table_width_callback($args) {
@@ -343,7 +343,7 @@ function table_width_callback($args) {
 	
 	
 	echo '<input type="text" id="table_width" name="dew_display_options[table_width]" value="' . $options['table_width'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 function header_height_callback($args) {
@@ -352,7 +352,7 @@ function header_height_callback($args) {
 	
 	
 	echo '<input type="text" id="header_height" name="dew_display_options[header_height]" value="' . $options['header_height'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 function row_height_callback($args) {
@@ -361,7 +361,7 @@ function row_height_callback($args) {
 	
 	
 	echo '<input type="text" id="row_height" name="dew_display_options[row_height]" value="' . $options['row_height'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 function table_header_color_callback($args) {
@@ -369,7 +369,7 @@ function table_header_color_callback($args) {
 	$options = get_option( 'dew_display_options' );
 	
 	echo '<input type="text" id="table_header_color" name="dew_display_options[table_header_color]" value="' . $options['table_header_color'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 function alt_row_color_callback($args) {
@@ -377,7 +377,7 @@ function alt_row_color_callback($args) {
 	$options = get_option( 'dew_display_options' );
 	
 	echo '<input type="text" id="alt_row_color" name="dew_display_options[alt_row_color]" value="' . $options['alt_row_color'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 function primary_row_color_callback($args) {
@@ -385,7 +385,7 @@ function primary_row_color_callback($args) {
 	$options = get_option( 'dew_display_options' );
 	
 	echo '<input type="text" id="primary_row_color" name="dew_display_options[primary_row_color]" value="' . $options['primary_row_color'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 function show_no_column_callback($args) {
@@ -425,7 +425,7 @@ function header_name_for_no_callback($args) {
 	
 	
 	echo '<input type="text" id="header_name_for_no" name="dew_display_options[header_name_for_no]" value="' . $options['header_name_for_no'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 function header_name_for_name_callback($args) {
@@ -434,7 +434,7 @@ function header_name_for_name_callback($args) {
 	
 	
 	echo '<input type="text" id="header_name_for_name" name="dew_display_options[header_name_for_name]" value="' . $options['header_name_for_name'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 
@@ -444,7 +444,7 @@ function header_name_for_player_callback($args) {
 	
 	
 	echo '<input type="text" id="header_name_for_player" name="dew_display_options[header_name_for_player]" value="' . $options['header_name_for_player'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 
@@ -454,7 +454,7 @@ function header_name_for_size_callback($args) {
 	
 	
 	echo '<input type="text" id="header_name_for_size" name="dew_display_options[header_name_for_size]" value="' . $options['header_name_for_size'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 
@@ -464,7 +464,7 @@ function header_name_for_duration_callback($args) {
 	
 	
 	echo '<input type="text" id="header_name_for_duration" name="dew_display_options[header_name_for_duration]" value="' . $options['header_name_for_duration'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 
@@ -474,7 +474,7 @@ function header_name_for_download_callback($args) {
 	
 	
 	echo '<input type="text" id="header_name_for_download" name="dew_display_options[header_name_for_download]" value="' . $options['header_name_for_download'] . '" class="nice" />';
-	echo '<span class="descr">'.$args[0].'</span>';
+	echo '<div class="descr">'.$args[0].'</div>';
 } 
 
 function download_img_callback($args) {
