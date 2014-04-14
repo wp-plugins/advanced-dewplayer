@@ -4,7 +4,7 @@ Donate link: http://www.westerndeal.com/
 Tags: wordpress dewplayer, audio, audio player, mp3, mp3 player, flash, flash player, dewplayer, wp dewplayer, music, music player, ultimate player, songs
 Requires at least: 2.8
 Tested up to: 3.8
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,24 +35,6 @@ You can use below shortcode for fetching all MP3's from single directory on your
 2. [musicdirectory path="wp-content/myaudio/"]`
 
 **Remember:** Don't forget to Include trailing slash (/) at the end of path and use relative path (relative to your site's root).
-
-**Single MP3 file**
-
-You can use below shortcode for showing single MP3 file:
-
-*[musicsingle file="Full path of your MP3 file"]*
-
-`Examples
-
-1. [musicsingle file="http://www.mymusic.com/playlist/audio.mp3"]`
-
-*Using custom name for MP3 file*
-
-below shortcode allow you to use custom name for remote MP3 file
-
-`2. [musicsingle file="http://www.mymusic.com/playlist/audio-abcd.mp3" name="MyAudio"]`
-
-**Remember:** Use full path of MP3 file.
 
 For documentation please click [here](http://www.westerndeal.com/OurPlugins/AdvanceDewplayer/Documentation.pdf)
 
@@ -105,3 +87,6 @@ echo do_shortcode('[musicsingle file="http://www.mymusic.com/playlist/audio-abcd
 
 = 1.3 =
 * fix CVE-2013-7240 issue
+
+= 1.4 =
+* Removed a feature as part of CAPEC-148 Content Spoofing security vulnerability

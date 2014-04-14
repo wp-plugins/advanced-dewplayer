@@ -3,7 +3,7 @@
 Plugin Name: Advanced Dewplayer
 Plugin URI: http://www.westerndeal.com
 Description: Upload MP3 files to any folder on your server. Add the shortcode to your page/post with path of your MP3 folder from which you want to fetch all MP3 files and you have a beautiful playable list of MP3's with much more options.
-Version: 1.3
+Version: 1.4
 Author: WesternDeal
 Author URI: http://www.westerndeal.com
 */
@@ -166,58 +166,6 @@ foreach($dirFiles as $file)
 	}
 			
 			$html .= '</tbody>';
-			$html .= '</table>' ;
-
-		 return $html;
-}
-
-// add shortcode for displaying single mp3 file with all options
-add_shortcode('musicsingle','music_procedure_single');
-
-function music_procedure_single($atts)
-{
-		  extract( shortcode_atts( array(
-		'file' => '',
-		'name' => ''
-	), $atts ) );
-
-				global $tabwidth;
-				global $rowheight;
-				global $showsize;
-				global $showlength;
-				global $downloadimg;
-
-				$tabWidth = ( isset($tabwidth) && $tabwidth > 0 ) ? $tabwidth : '100%';
-				$rowHeight = ( isset($rowheight) && $rowheight > 0 ) ? $rowheight : '100%';
-				
-				
-				$html = '<style type="text/css">
-				.dewPlay {width:'.$tabWidth.' !important; border-collapse:collapse;}
-				.dewPlay tr.dewc {height:' . $rowHeight . ' !important; vertical-align:middle;}
-				.dewPlay tbody tr td { vertical-align:middle; }
-				.dewc object { margin: 0 auto !important; width: 100% !important; }
-				</style>';
-				$html .= '<table class="dewPlay">';
-				$html .= '<tr class="dewc">';
-
-				if ( strtolower(substr(strrchr($file,"."),1)) != 'mp3' ) continue;
-				if($name=='')
-				{
-				 	$parts = pathinfo($file);
-					$file_name = $parts['basename'];
-				}
-				else
-				{
-					$file_name = $name;
-				}	
-				$html .= '<td>' .$file_name. '</td>';
-				$html .= '<td style="vertical-align:middle;"> <object type="application/x-shockwave-flash" data="'.PLUGIN_PATH.'/dewplayer.swf?mp3='.$file.'" width="200" height="20" id="dewplayer"><param name="wmode" value="transparent" /><param name="movie" value="'.PLUGIN_PATH.'/dewplayer.swf?mp3='.$file.'" /></object>
-</td>';
-				
-				$html .= '<td><a href="'.PLUGIN_PATH.'/admin-panel/download-file-remote.php?dew_file='.$file.'"><img src="'.$downloadimg.'" title="download" style="border:none !imporatnt; width: 32px; height: 32px;"/></a></td>';
-				$html .= '</tr>';
-			
-			
 			$html .= '</table>' ;
 
 		 return $html;
