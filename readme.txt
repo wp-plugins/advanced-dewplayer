@@ -14,8 +14,6 @@ Get all MP3 files from any directory and show them with player with Perfect Layo
 
 Advanced Dewlayer is developed by [WesternDeal](http://www.westerndeal.com) allows you to show list of MP3's on your site or blog by fetching them from single directory on your server. You have to use shortcode into your page/post with path of your MP3 folder from which you want to fetch all MP3 files and you will see a perfect playable list of MP3's with much more options.
 
-If you want to display only single MP3 file then give full path of that MP3 file from local or remote server.
-
 **Features**
 
 * Get all MP3 files from sindle directory to display list of playable MP3s with other information and download option
