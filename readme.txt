@@ -1,9 +1,9 @@
 === Advanced Dewplayer ===
 Contributors: westerndeal
-Donate link: http://www.westerndeal.com/
-Tags: wordpress dewplayer, audio, audio player, mp3, mp3 player, flash, flash player, dewplayer, wp dewplayer, music, music player, ultimate player, songs
+Donate link: http://westerndeal.com/advanced-dewplayer-plugin/
+Tags: wordpress dewplayer, audio, audio player, mp3, mp3 player, flash, flash player, dewplayer, wp dewplayer, music, music player, ultimate player, playlist, playlist dewplayer 
 Requires at least: 2.8
-Tested up to: 3.8
+Tested up to: 3.9
 Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,7 +34,10 @@ You can use below shortcode for fetching all MP3's from single directory on your
 
 **Remember:** Don't forget to Include trailing slash (/) at the end of path and use relative path (relative to your site's root).
 
-For documentation please click [here](http://www.westerndeal.com/OurPlugins/AdvanceDewplayer/Documentation.pdf)
+For Documentation in PDF Please [Click Here](http://www.westerndeal.com/OurPlugins/AdvanceDewplayer/Documentation.pdf)
+
+Advanced Dewplayer PRO VERSION is AVAILABLE now. [Download Here](http://westerndeal.com/advanced-dewplayer-plugin/)
+ http://westerndeal.com/advanced-dewplayer-plugin/(http://westerndeal.com/advanced-dewplayer-plugin/)
 
 == Installation ==
 
@@ -65,10 +68,6 @@ use following code for inserting shortcode into template file:
 echo do_shortcode('[musicdirectory path="playlist/"]');   //replace playlist with your path 
 ?>`
 
-`<?php 
-echo do_shortcode('[musicsingle file="http://www.mymusic.com/playlist/audio-abcd.mp3" name="MyAudio"]
-"]');
-?>`
 == Screenshots ==
 
 1. Plugin Settings
