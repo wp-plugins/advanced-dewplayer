@@ -34,7 +34,7 @@ You can use below shortcode for fetching all MP3's from single directory on your
 
 **Remember:** Don't forget to Include trailing slash (/) at the end of path and use relative path (relative to your site's root).
 
-For Documentation in PDF Please [Click Here](http://www.westerndeal.com/OurPlugins/AdvanceDewplayer/Documentation.pdf)
+For Documentation in PDF Please [Click Here](http://westerndeal.com/wp-content/uploads/2014/04/Documentation.pdf)
 
 Advanced Dewplayer PRO VERSION is AVAILABLE now. [Download Here](http://westerndeal.com/advanced-dewplayer-plugin/)
  http://westerndeal.com/advanced-dewplayer-plugin/(http://westerndeal.com/advanced-dewplayer-plugin/)
