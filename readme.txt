@@ -37,7 +37,6 @@ You can use below shortcode for fetching all MP3's from single directory on your
 For Documentation in PDF Please [Click Here](http://westerndeal.com/wp-content/uploads/2014/04/Documentation.pdf)
 
 Advanced Dewplayer PRO VERSION is AVAILABLE now. [Download Here](http://westerndeal.com/advanced-dewplayer-plugin/)
- http://westerndeal.com/advanced-dewplayer-plugin/(http://westerndeal.com/advanced-dewplayer-plugin/)
 
 == Installation ==
 
