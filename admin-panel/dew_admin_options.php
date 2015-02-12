@@ -111,6 +111,17 @@ function dew_initialize_theme_options() {
 		'dew_display_options'
 	);
 	
+//	add_settings_field(	
+//		'folder_path',	
+//		'Folder Path',
+//		'folder_path_callback',
+//		'dew_display_options',
+//		'dew_settings_section',
+//		array(
+//			__( 'define folder path to play songs', 'dew' ),
+//		)
+//	);
+	
 	add_settings_field(	
 		'max_rows',	
 		'Maximum Rows',
@@ -327,6 +338,12 @@ add_action( 'admin_init', 'dew_initialize_theme_options' );
 function dew_options_callback()
 {
 }
+
+//function folder_path_callback($args) {
+//    $options = get_option( 'dew_display_options' );
+//    echo '<input type="text" id="folder_path" name="dew_display_options[folder_path]" value="' . $options['folder_path'] . '" class="nice" />';
+//    echo '<div class="descr">'.$args[0].'</div>';
+//}
 
 function max_rows_callback($args) {
 	

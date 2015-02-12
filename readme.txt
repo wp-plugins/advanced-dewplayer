@@ -3,8 +3,8 @@ Contributors: westerndeal
 Donate link: http://westerndeal.com/advanced-dewplayer-plugin/
 Tags: wordpress dewplayer, audio, audio player, mp3, mp3 player, flash, flash player, dewplayer, wp dewplayer, music, music player, ultimate player, playlist, playlist dewplayer 
 Requires at least: 2.8
-Tested up to: 3.9
-Stable tag: 1.4
+Tested up to: 4.1
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,3 +86,6 @@ echo do_shortcode('[musicdirectory path="playlist/"]');   //replace playlist wit
 
 = 1.4 =
 * Removed a feature as part of CAPEC-148 Content Spoofing security vulnerability
+
+= 1.5 =
+* Removed Content Spoofing security vulnerability issues and compatible with wordpress 4.1
